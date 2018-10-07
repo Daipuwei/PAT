@@ -1,0 +1,33 @@
+# Project: 项目4
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = 害死人不偿命的(3n+1)猜想_private.res
+OBJ      = 害死人不偿命的(3n+1)猜想.o $(RES)
+LINKOBJ  = 害死人不偿命的(3n+1)猜想.o $(RES)
+LIBS     = -L"D:/编程软件/Dev-C++/MinGW64/lib" -L"D:/编程软件/Dev-C++/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/编程软件/Dev-C++/MinGW64/include" -I"D:/编程软件/Dev-C++/MinGW64/x86_64-w64-mingw32/include" -I"D:/编程软件/Dev-C++/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/编程软件/Dev-C++/MinGW64/include" -I"D:/编程软件/Dev-C++/MinGW64/x86_64-w64-mingw32/include" -I"D:/编程软件/Dev-C++/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/编程软件/Dev-C++/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = 害死人不偿命的(3n+1)猜想.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+害死人不偿命的(3n+1)猜想.o: 害死人不偿命的(3n+1)猜想.cpp
+	$(CPP) -c 害死人不偿命的(3n+1)猜想.cpp -o 害死人不偿命的(3n+1)猜想.o $(CXXFLAGS)
+
+害死人不偿命的(3n+1)猜想_private.res: 害死人不偿命的(3n+1)猜想_private.rc 
+	$(WINDRES) -i 害死人不偿命的(3n+1)猜想_private.rc --input-format=rc -o 害死人不偿命的(3n+1)猜想_private.res -O coff 
+
